@@ -38,7 +38,7 @@ export class MyAddressComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.addressService.startAutocompleteService(this.searchElementRef);
-    this.findAddress();
+    this.addressChangedListener();
   }
 
   ngOnDestroy(): void {
@@ -65,7 +65,7 @@ export class MyAddressComponent implements OnInit, AfterViewInit, OnDestroy {
 
   }
 
-  findAddress(): void {
+  addressChangedListener(): void {
     this.subs.add(
       this.addressService.autocompleteInitialized.pipe(filter(autocomplete => autocomplete)).subscribe(autocomplete => {
         autocomplete.addListener('place_changed', () => {
