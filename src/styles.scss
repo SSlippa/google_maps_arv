@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/helpers/reset';
+@import 'styles/helpers/fonts';
+
+html,
+body {
+  font-size: 14px;
+  direction: ltr;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Assistant', sans-serif;
+  background-color: white;
+  color: black;
+  position: relative;
+}

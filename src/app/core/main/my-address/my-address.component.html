@@ -1,0 +1,45 @@
+<form [formGroup]="searchForm">
+  <div class="search-text" *ngIf="!isAddressFormState; else elseBlock">
+    <div class="form-input">
+      <input pInputText #search autocapitalize="off" formControlName="text">
+    </div>
+    <div class="link">Cant find your address? <a href="" (click)="switchForm($event)">Edit</a></div>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="group-wrapper">
+      <div class="form-group">
+        <div class="form-input">
+        <span class="p-float-label">
+          <input id="street" pInputText formControlName="street">
+          <label for="street">Street</label>
+        </span>
+        </div>
+        <div class="form-input">
+        <span class="p-float-label">
+        <input id="city" pInputText formControlName="city">
+          <label for="city">City</label>
+          </span>
+        </div>
+        <div class="form-input">
+        <span class="p-float-label">
+        <input id="country" pInputText formControlName="country">
+          <label for="country">County</label>
+        </span>
+        </div>
+        <div class="form-input">
+        <span class="p-float-label">
+        <input id="zip" pInputText formControlName="zip">
+          <label for="zip">Zip</label>
+        </span>
+        </div>
+      </div>
+      <div class="link">Return to <a href="" (click)="switchForm($event)">address search</a></div>
+    </div>
+  </ng-template>
+</form>
+
+<agm-map *ngIf="latitude && longitude && !isAddressFormState" [latitude]='latitude' [longitude]='longitude' [zoom]="zoom">
+  <agm-marker [latitude]="latitude" [longitude]="longitude">
+  </agm-marker>
+</agm-map>
