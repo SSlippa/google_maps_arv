@@ -29,7 +29,7 @@
         </div>
         <div class="form-input">
         <span class="p-float-label">
-        <input id="zip" pInputText formControlName="zip">
+        <input id="zip" pInputText type="number" formControlName="zip">
           <label for="zip">Zip</label>
         </span>
         </div>
@@ -41,5 +41,6 @@
 
 <agm-map *ngIf="latitude && longitude && !isAddressFormState" [latitude]='latitude' [longitude]='longitude' [zoom]="zoom">
   <agm-marker [latitude]="latitude" [longitude]="longitude">
+    <agm-info-window>{{searchForm.get('text').value}}</agm-info-window>
   </agm-marker>
 </agm-map>
